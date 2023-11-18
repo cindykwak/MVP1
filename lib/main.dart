@@ -36,7 +36,7 @@ class MyHomePage extends StatefulWidget {
   final String title;
 
   @override
-  State<MyHomePage> createState() => Login_1();
+  State<MyHomePage> createState() => Start_Goal_1();
 }
 
 class Main_1 extends State<MyHomePage> {
@@ -129,8 +129,6 @@ class Main_2 extends StatelessWidget {
     );
   }
 }
-
-
 
 class Login_1 extends State<MyHomePage> {
   @override
@@ -291,3 +289,61 @@ Widget build(BuildContext context) {
     );
   }
 }
+
+
+class Start_Goal_1 extends State<MyHomePage> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Container(
+            child: Text('첫 목표는 얼마 만에 이루고 싶나요?'),
+          ),
+          Column(
+            children: [Row (children: [
+              ElevatedButton(onPressed:  (){}, child: Text('3개월')),
+              ElevatedButton(onPressed: (){}, child: Text('6개월')),
+              ElevatedButton(onPressed: (){}, child: Text('1년'))
+            ], mainAxisAlignment: MainAxisAlignment.center,),
+            ElevatedButton(onPressed: (){}, child: Text('모르겠어요'),)],
+            ),
+          Row(
+            children: [
+              TextField(
+                decoration: InputDecoration(hintText: '직접 입력')
+              ), DropdownButton(items: [DropdownMenuItem(child: Text('년')), ], onChanged: (value) {  },)
+            ],
+          )]
+    )));
+  }
+}
+class Start_Goal_2 extends StatelessWidget {
+  const Start_Goal_2({super.key});
+  @override
+Widget build(BuildContext context) {
+    return Scaffold(
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [Container(
+            child: Text('적어주신 이메일로 비밀번호 재설정 링크를 보내드릴께요'),
+          ),
+          const TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                hintText: '이메일 입력',
+              ),),
+          Container(
+            child: ElevatedButton(child: Text('보내기'), onPressed: () {
+              Navigator.pop(context);
+            },),
+          ),
+          ]
+        ),
+      ),
+    );
+  }
+}
+
